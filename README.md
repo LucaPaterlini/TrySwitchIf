@@ -90,3 +90,7 @@ BenchmarkTrySwitch2-4   	2000000000	         1.77 ns/op
 BenchmarkTrySwitch3-4   	2000000000	         1.76 ns/op
 PASS
 ```
+
+While I have sorted how to bound a thread to a cpu to compare having the same cpu
+capacity looks like the differences in between switch and if then else are
+not perceivable at this scale
