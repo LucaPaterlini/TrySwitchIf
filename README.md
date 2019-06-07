@@ -43,3 +43,10 @@ with the double of the execution time.
 
 ### Wish
 Could someone advice on how there is this behave?
+
+## Idea
+
+Maybe the benchmarks in odd position are executed by the cpu with no load due to the
+operative system while the other one is executed using the cpu that is also running the os
+
+
