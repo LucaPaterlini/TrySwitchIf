@@ -10,6 +10,8 @@ vs if then else if.
 I have added the specs of the hw I have used in mySpecs.html,
 in short retail hp laptop 2 real cores 4 threads, 4gb memory
 
+####Repeating the benchmarks 2 times
+
 ```goos: linux
    goarch: amd64
    BenchmarkTryIf-4        	2000000000	         0.41 ns/op
@@ -17,6 +19,19 @@ in short retail hp laptop 2 real cores 4 threads, 4gb memory
    BenchmarkTrySwitch-4    	2000000000	         0.38 ns/op
    BenchmarkTrySwitch2-4   	2000000000	         0.78 ns/op
    PASS
+```
+
+#### Rebating the benchmarks 3 times
+
+```
+goos: linux
+goarch: amd64
+BenchmarkTryIf-4        	2000000000	         0.40 ns/op
+BenchmarkTry2If-4       	2000000000	         0.78 ns/op
+BenchmarkTry3If-4       	2000000000	         0.39 ns/op
+BenchmarkTrySwitch-4    	2000000000	         0.76 ns/op
+BenchmarkTrySwitch2-4   	2000000000	         0.38 ns/op
+BenchmarkTrySwitch3-4   	2000000000	         0.77 ns/op
 ```
 
 ### Conclusion

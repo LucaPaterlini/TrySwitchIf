@@ -14,6 +14,11 @@ func BenchmarkTry2If(b *testing.B) {
 	}
 }
 
+func BenchmarkTry3If(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		TryIf(i%30)
+	}
+}
 func BenchmarkTrySwitch(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		TrySwitch(i%30)
@@ -21,6 +26,11 @@ func BenchmarkTrySwitch(b *testing.B) {
 }
 
 func BenchmarkTrySwitch2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		TrySwitch(i%30)
+	}
+}
+func BenchmarkTrySwitch3(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		TrySwitch(i%30)
 	}
