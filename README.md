@@ -34,20 +34,8 @@ BenchmarkTrySwitch2-4   	2000000000	         0.38 ns/op
 BenchmarkTrySwitch3-4   	2000000000	         0.77 ns/op
 ```
 
-#### Added a bind of the thread all on the same cpu-thread
-```
-goos: linux
-goarch: amd64
-BenchmarkTryIf-4        	2000000000	         1.75 ns/op
-BenchmarkTry2If-4       	2000000000	         1.75 ns/op
-BenchmarkTry3If-4       	2000000000	         1.74 ns/op
-BenchmarkTrySwitch-4    	2000000000	         1.73 ns/op
-BenchmarkTrySwitch2-4   	2000000000	         1.74 ns/op
-BenchmarkTrySwitch3-4   	2000000000	         1.74 ns/op
-```
-
 ### Wish
-Could someone advice on how there is this behave?
+How can I get a all the benchmark tested on the same vCPU-core?
 
 ## Idea
 
@@ -79,16 +67,16 @@ func init() {
 
 ```
 
+#### Added a bind of the thread all on the same cpu-thread
 ```
 goos: linux
 goarch: amd64
-BenchmarkTryIf-4        	2000000000	         1.78 ns/op
-BenchmarkTry2If-4       	2000000000	         1.76 ns/op
-BenchmarkTry3If-4       	2000000000	         1.76 ns/op
-BenchmarkTrySwitch-4    	2000000000	         1.76 ns/op
-BenchmarkTrySwitch2-4   	2000000000	         1.77 ns/op
-BenchmarkTrySwitch3-4   	2000000000	         1.76 ns/op
-PASS
+BenchmarkTryIf-4        	2000000000	         1.75 ns/op
+BenchmarkTry2If-4       	2000000000	         1.75 ns/op
+BenchmarkTry3If-4       	2000000000	         1.74 ns/op
+BenchmarkTrySwitch-4    	2000000000	         1.73 ns/op
+BenchmarkTrySwitch2-4   	2000000000	         1.74 ns/op
+BenchmarkTrySwitch3-4   	2000000000	         1.74 ns/op
 ```
 
 While I have sorted how to bound a thread to a cpu to compare having the same cpu
