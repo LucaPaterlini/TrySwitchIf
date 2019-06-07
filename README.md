@@ -21,7 +21,7 @@ in short retail hp laptop 2 real cores 4 threads, 4gb memory
    PASS
 ```
 
-#### Rebating the benchmarks 3 times
+#### Repeating the benchmarks 3 times
 
 ```
 goos: linux
@@ -34,12 +34,17 @@ BenchmarkTrySwitch2-4   	2000000000	         0.38 ns/op
 BenchmarkTrySwitch3-4   	2000000000	         0.77 ns/op
 ```
 
-### Conclusion
-
-I was expecting a slower speed using switch instead of using if then else if
-and Instead they are compareble and switch marginally faster,
-The unexpected result is that re executing each function gives a benchmark
-with the double of the execution time.
+#### Added a bind of the thread all on the same cpu-thread
+```
+goos: linux
+goarch: amd64
+BenchmarkTryIf-4        	2000000000	         1.75 ns/op
+BenchmarkTry2If-4       	2000000000	         1.75 ns/op
+BenchmarkTry3If-4       	2000000000	         1.74 ns/op
+BenchmarkTrySwitch-4    	2000000000	         1.73 ns/op
+BenchmarkTrySwitch2-4   	2000000000	         1.74 ns/op
+BenchmarkTrySwitch3-4   	2000000000	         1.74 ns/op
+```
 
 ### Wish
 Could someone advice on how there is this behave?
@@ -61,3 +66,27 @@ BenchmarkTrySwitch2 	2000000000	         0.42 ns/op
 BenchmarkTrySwitch3 	2000000000	         0.79 ns/op
 ```
 same result with a single processor
+
+### Conclusion
+
+thanks to advice of  https://twitter.com/empijei?lang=en
+I have made it single threaded using the same core thread just adding
+to the test file
+```
+func init() {
+	runtime.LockOSThread()
+}
+
+```
+
+```
+goos: linux
+goarch: amd64
+BenchmarkTryIf-4        	2000000000	         1.78 ns/op
+BenchmarkTry2If-4       	2000000000	         1.76 ns/op
+BenchmarkTry3If-4       	2000000000	         1.76 ns/op
+BenchmarkTrySwitch-4    	2000000000	         1.76 ns/op
+BenchmarkTrySwitch2-4   	2000000000	         1.77 ns/op
+BenchmarkTrySwitch3-4   	2000000000	         1.76 ns/op
+PASS
+```
