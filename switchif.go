@@ -1,12 +1,5 @@
 package switchif
 
-import (
-	"runtime"
-)
-
-func init() {
-	runtime.LockOSThread()
-}
 
 func TryIf(n int) string {
 	if n > 20 {

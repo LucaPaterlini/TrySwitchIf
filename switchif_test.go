@@ -1,6 +1,13 @@
 package switchif
 
-import "testing"
+import (
+	"testing"
+)
+
+//func init(){
+//	runtime.LockOSThread()
+//	runtime.GOMAXPROCS(1)
+//}
 
 func BenchmarkTryIf(b *testing.B) {
 	for i := 0; i < b.N; i++ {
