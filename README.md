@@ -49,4 +49,15 @@ Could someone advice on how there is this behave?
 Maybe the benchmarks in odd position are executed by the cpu with no load due to the
 operative system while the other one is executed using the cpu that is also running the os
 
-
+Tested, 
+```
+goos: linux
+goarch: amd64
+BenchmarkTryIf      	2000000000	         0.40 ns/op
+BenchmarkTry2If     	2000000000	         0.78 ns/op
+BenchmarkTry3If     	2000000000	         0.38 ns/op
+BenchmarkTrySwitch  	2000000000	         0.80 ns/op
+BenchmarkTrySwitch2 	2000000000	         0.42 ns/op
+BenchmarkTrySwitch3 	2000000000	         0.79 ns/op
+```
+same result with a single processor
